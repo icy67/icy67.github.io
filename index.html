@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>icy67 — Unhiding the Power of AI in the Fun Way</title>
+<meta name="description" content="Bildungsprojekt aus Zürich. Von einem Schüler, für Schüler. Gymi-Vorbereitung mit AI und Spass. Coming Soon.">
+<meta property="og:title" content="icy67 — Unhiding the Power of AI in the Fun Way">
+<meta property="og:description" content="Education project from Zurich. By a student, for students. Gym exam prep with AI and fun.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://icy67.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ice:#a8e6ff;--glow:#00e5ff;--deep:#4fc3f7;--dark:#0a0e17;--card:#111827;
+  --text:#c9d6e3;--white:#fff;--pink:#ff6b9d;--gold:#ffd93d;--green:#4ade80;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden;min-height:100vh;}
+.mono{font-family:'JetBrains Mono',monospace;}
+.snow{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.flake{position:absolute;top:-10px;color:rgba(168,230,255,0.2);animation:fall linear infinite;}
+@keyframes fall{to{transform:translateY(100vh) rotate(360deg);opacity:0;}}
+@keyframes pulse{0%,100%{box-shadow:0 0 10px rgba(74,222,128,0.1);}50%{box-shadow:0 0 25px rgba(74,222,128,0.25);}}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 0;}
+.badge{display:inline-block;font-size:0.65rem;letter-spacing:0.12em;color:var(--green);background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.25);padding:5px 14px;border-radius:100px;margin-bottom:32px;animation:pulse 3s ease-in-out infinite;}
+.logo{font-size:clamp(3rem,10vw,5.5rem);font-weight:900;line-height:1;background:linear-gradient(135deg,var(--ice),var(--glow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;}
+.tagline{font-size:clamp(0.8rem,2.2vw,1.1rem);color:var(--deep);font-weight:500;margin-bottom:28px;}
+.hero-desc{font-size:1.05rem;color:var(--text);max-width:500px;line-height:1.75;margin-bottom:36px;}
+.coming-badge{display:inline-block;font-size:0.7rem;color:var(--gold);background:rgba(255,217,61,0.08);border:1px solid rgba(255,217,61,0.25);padding:6px 18px;border-radius:100px;margin-bottom:40px;letter-spacing:0.1em;}
+section{padding:50px 0;}
+.section-label{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--pink);margin-bottom:10px;}
+.section-title{font-size:clamp(1.5rem,4vw,2rem);font-weight:700;color:var(--white);margin-bottom:16px;}
+.section-text{font-size:0.95rem;line-height:1.75;margin-bottom:20px;max-width:600px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:24px;}
+.card{background:var(--card);border:1px solid rgba(168,230,255,0.06);border-radius:14px;padding:22px;}
+.card-icon{font-size:1.8rem;margin-bottom:10px;}
+.card h3{font-size:0.95rem;color:var(--white);margin-bottom:6px;}
+.card p{font-size:0.82rem;line-height:1.6;}
+.terminal{background:#0d1117;border:1px solid #21262d;border-radius:10px;overflow:hidden;font-size:0.75rem;line-height:1.9;margin-top:24px;}
+.terminal-bar{background:rgba(255,255,255,0.03);padding:7px 12px;display:flex;align-items:center;gap:5px;border-bottom:1px solid #21262d;}
+.dot{width:9px;height:9px;border-radius:50%;}
+.dot.r{background:#ff5f57;}.dot.y{background:#febc2e;}.dot.g{background:#28c840;}
+.terminal-body{padding:14px;}
+.terminal-body .c{color:#6a737d;}
+.terminal-body .gr{color:var(--green);}
+.terminal-body .h{color:var(--glow);}
+.terminal-body .w{color:var(--gold);}
+.quote{text-align:center;padding:40px 0;border-top:1px solid rgba(168,230,255,0.06);border-bottom:1px solid rgba(168,230,255,0.06);}
+.quote blockquote{font-size:clamp(1rem,2.5vw,1.3rem);font-weight:300;font-style:italic;color:#e8f4fd;max-width:520px;margin:0 auto 12px;line-height:1.7;}
+.quote cite{font-size:0.7rem;color:var(--deep);font-style:normal;}
+footer{border-top:1px solid rgba(168,230,255,0.06);padding:30px 0;text-align:center;}
+footer a{color:var(--deep);text-decoration:none;}
+footer a:hover{color:var(--glow);}
+
+/* Language Switcher */
+.lang-switch{position:fixed;top:14px;right:14px;z-index:100;display:flex;gap:4px;background:rgba(10,14,23,0.85);backdrop-filter:blur(16px);border:1px solid rgba(168,230,255,0.1);border-radius:10px;padding:4px;}
+.lang-btn{font-family:'JetBrains Mono',monospace;font-size:0.65rem;padding:5px 10px;border:none;border-radius:7px;cursor:pointer;background:transparent;color:var(--text);transition:all 0.3s;}
+.lang-btn.active{background:rgba(0,229,255,0.15);color:var(--glow);}
+.lang-btn:hover{color:var(--glow);}
+
+@media(max-width:480px){.cards{grid-template-columns:1fr;}.lang-switch{top:10px;right:10px;}}
+</style>
+</head>
+<body>
+
+<div class="snow" id="snow"></div>
+
+<!-- LANGUAGE SWITCHER -->
+<div class="lang-switch">
+  <button class="lang-btn active" onclick="setLang('de')" id="btn-de">DE</button>
+  <button class="lang-btn" onclick="setLang('ch')" id="btn-ch">CH</button>
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap" style="display:flex;flex-direction:column;align-items:center;">
+    <div class="badge mono" data-de="✔ SOURCE AVAILABLE · FAMILIENPROJEKT · ZÜRICH" data-ch="✔ SOURCE AVAILABLE · FAMILIEPROJÄKT · ZÜRI" data-en="✔ SOURCE AVAILABLE · FAMILY PROJECT · ZURICH">✔ SOURCE AVAILABLE · FAMILIENPROJEKT · ZÜRICH</div>
+    <h1 class="logo">icy67</h1>
+    <p class="tagline mono">Unhiding the Power of AI in the Fun Way</p>
+    <p class="hero-desc" data-de="Ein Familienprojekt aus Zürich. Gebaut von einem Schüler, unterstützt von seiner Familie. Unser Ziel: Lernen soll Spass machen — mit AI, Humor und einer Prise Abenteuer." data-ch="Es Familieprojäkt us Züri. Bout vo eme Schüeler, understützt vo sinere Familie. Euses Ziel: Lehre söll Spass mache — mit AI, Humor und emene Schnitz Abentüür." data-en="A family project from Zurich, Switzerland. Built by a student, supported by his family. Our goal: learning should be fun — with AI, humor, and a touch of adventure.">Ein Familienprojekt aus Zürich. Gebaut von einem Schüler, unterstützt von seiner Familie. Unser Ziel: Lernen soll Spass machen — mit AI, Humor und einer Prise Abenteuer.</p>
+    <div class="coming-badge mono" data-de="🚧 COMING SOON — WIR BAUEN GERADE" data-ch="🚧 COMING SOON — MIR BOUED GRAD" data-en="🚧 COMING SOON — WE'RE BUILDING">🚧 COMING SOON — WIR BAUEN GERADE</div>
+  </div>
+</div>
+
+<!-- WHAT -->
+<section>
+  <div class="wrap">
+    <p class="section-label mono">// <span data-de="was wir bauen" data-ch="was mir boued" data-en="what we're building">was wir bauen</span></p>
+    <h2 class="section-title" data-de="Eine Lernplattform, die anders ist" data-ch="E Lernplattform wo andersch isch" data-en="A Learning Platform That's Different">Eine Lernplattform, die anders ist</h2>
+    <p class="section-text" data-de="icy67 ist eine kostenlose, AI-gestützte Lernplattform für Schülerinnen und Schüler in Zürich. Unser erstes Projekt: Vorbereitung auf die Zentrale Aufnahmeprüfung (ZAP) fürs Gymnasium — verpackt als Abenteuer-Game, erklärt mit Humor, angetrieben von AI." data-ch="icy67 isch e gratis, AI-gstützti Lernplattform für Schüelerinne und Schüeler i Züri. Euses erschte Projäkt: Vorbereitig uf d Zentraal Ufnahmsprüefig (ZAP) fürs Gymi — verpackt als Abentüür-Game, erchlärt mit Humor, aatriibe vo AI." data-en="icy67 is a free, AI-powered learning platform for students in Zurich. Our first project: preparation for the Central Entrance Exam (ZAP) for Gymnasium — wrapped as an adventure game, explained with humor, powered by AI.">icy67 ist eine kostenlose, AI-gestützte Lernplattform für Schülerinnen und Schüler in Zürich. Unser erstes Projekt: Vorbereitung auf die Zentrale Aufnahmeprüfung (ZAP) fürs Gymnasium — verpackt als Abenteuer-Game, erklärt mit Humor, angetrieben von AI.</p>
+    <p class="section-text" data-de="Wir glauben: Wenn ein Kind für Kinder baut, entsteht etwas, das Erwachsene alleine nie hinbekommen würden. Etwas, das wirklich Spass macht." data-ch="Mir glaubed: Wenn es Chind für Chind bout, entstaht öppis wo Erwachseni elei nie hätte chönne mache. Öppis wo würkli Spass macht." data-en="We believe: when a kid builds for kids, something emerges that adults alone could never create. Something that's genuinely fun.">Wir glauben: Wenn ein Kind für Kinder baut, entsteht etwas, das Erwachsene alleine nie hinbekommen würden. Etwas, das wirklich Spass macht.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🎮</div>
+        <h3 data-de="Zelda-Style Quests" data-ch="Zelda-Style Quests" data-en="Zelda-Style Quests">Zelda-Style Quests</h3>
+        <p data-de="Mathe und Deutsch üben — als Abenteuer. Laufe durch eine Welt, triff Charaktere, löse Rätsel." data-ch="Mathe und Dütsch üebe — als Abentüür. Lauf dure e Wält, triff Charaktere, lös Rätsel." data-en="Practice math and German — as an adventure. Explore a world, meet characters, solve puzzles.">Mathe und Deutsch üben — als Abenteuer. Laufe durch eine Welt, triff Charaktere, löse Rätsel.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧚</div>
+        <h3 data-de="Fairytale AI" data-ch="Fairytale AI" data-en="Fairytale AI">Fairytale AI</h3>
+        <p data-de="Ein AI-Chatbot der Fragen über AI lustig und ehrlich beantwortet. Für Kinder, ohne Angst." data-ch="En AI-Chatbot wo Frage über AI lustig und ehrlich beantwortet. Für Chind, ohni Angscht." data-en="An AI chatbot that answers questions about AI — funny and honest. For kids, without fear.">Ein AI-Chatbot der Fragen über AI lustig und ehrlich beantwortet. Für Kinder, ohne Angst.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎓</div>
+        <h3 data-de="Gymi-Trainer" data-ch="Gymi-Trainer" data-en="Gym Exam Trainer">Gymi-Trainer</h3>
+        <p data-de="AI-generierte Übungsaufgaben auf ZAP-Niveau. Mathe, Deutsch, Aufsatz — lustig erklärt." data-ch="AI-generierti Üebigsufgabe uf ZAP-Niveau. Mathe, Dütsch, Ufsatz — lustig erchlärt." data-en="AI-generated practice problems at exam level. Math, German, essays — explained with fun.">AI-generierte Übungsaufgaben auf ZAP-Niveau. Mathe, Deutsch, Aufsatz — lustig erklärt.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔓</div>
+        <h3 data-de="100% Kostenlos" data-ch="100% Gratis" data-en="100% Free">100% Kostenlos</h3>
+        <p data-de="Kostenlos für alle Schüler. Keine Gebühren. Bildung gehört allen — nicht nur denen, die es sich leisten können." data-ch="Gratis für alli Schüeler. Kei Gebühre. Bildig ghört allne — nöd nur dene wo sich's leischte chönd." data-en="Free for all students. No fees. Education belongs to everyone — not just those who can afford it.">Kostenlos für alle Schüler. Keine Gebühren. Bildung gehört allen — nicht nur denen, die es sich leisten können.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section>
+  <div class="wrap">
+    <p class="section-label mono">// <span data-de="wer wir sind" data-ch="wer mir sind" data-en="who we are">wer wir sind</span></p>
+    <h2 class="section-title" data-de="Ein Familienprojekt" data-ch="Es Familieprojäkt" data-en="A Family Project">Ein Familienprojekt</h2>
+    <p class="section-text" data-de="Hinter icy67 steht ein Schüler aus Zürich und seine Familie. Der Schüler hat die Ideen, die Vision und den Enthusiasmus. Die Familie hilft bei Organisation und Infrastruktur. Zusammen bauen wir mit Claude Code und VS Code an etwas, das Kindern helfen soll." data-ch="Hinder icy67 staht en Schüeler us Züri und sini Familie. De Schüeler hät d Idee, d Vision und de Enthusiasmus. D Familie hilft bi de Organisation und Infrastruktur. Zäme boued mir mit Claude Code und VS Code a öppis wo de Chind söll hälfe." data-en="Behind icy67 is a student from Zurich and his family. The student has the ideas, the vision, and the enthusiasm. The family helps with organization and infrastructure. Together we build with Claude Code and VS Code something that should help children.">Hinter icy67 steht ein Schüler aus Zürich und seine Familie. Der Schüler hat die Ideen, die Vision und den Enthusiasmus. Die Familie hilft bei Organisation und Infrastruktur. Zusammen bauen wir mit Claude Code und VS Code an etwas, das Kindern helfen soll.</p>
+    <p class="section-text" data-de="Der Schüler bleibt anonym — aus Überzeugung. Kinderschutz steht bei uns an erster Stelle. Man kann Grosses bewirken, ohne seinen Namen auf ein Poster zu drucken. Die Idee zählt, nicht der Fame." data-ch="De Schüeler blibt anonym — us Überzüügig. Chinderschutz staht bi eus a erschter Stell. Me cha Grosses bewürke, ohni sin Name uf es Plakat z drucke. D Idee zählt, nöd de Fame." data-en="The student stays anonymous — by conviction. Child protection comes first. You can achieve great things without putting your name on a poster. The idea counts, not the fame.">Der Schüler bleibt anonym — aus Überzeugung. Kinderschutz steht bei uns an erster Stelle. Man kann Grosses bewirken, ohne seinen Namen auf ein Poster zu drucken. Die Idee zählt, nicht der Fame.</p>
+
+    <div class="terminal mono">
+      <div class="terminal-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <span style="color:var(--text);font-size:0.65rem;margin-left:6px;">icy67 — status</span>
+      </div>
+      <div class="terminal-body">
+        <div class="c"># Projekt-Status</div>
+        <div><span class="gr">✔</span> Domain: icy67.com</div>
+        <div><span class="gr">✔</span> GitHub Repository: angelegt</div>
+        <div><span class="gr">✔</span> Fairytale AI Chatbot: Prototyp fertig</div>
+        <div><span class="gr">✔</span> Gymiland Quest-Game: Prototyp fertig</div>
+        <div><span class="gr">✔</span> Gymi-Trainer (Mathe/Deutsch): Prototyp fertig</div>
+        <div><span class="w">⏳</span> AI-Backend Integration: in Arbeit</div>
+        <div><span class="w">⏳</span> Weitere Quests und Aufgaben: in Arbeit</div>
+        <div><span class="w">⏳</span> Launch: Coming Soon</div>
+        <br>
+        <div class="c"># Tech-Stack</div>
+        <div><span class="h">→</span> Built with: Claude Code + VS Code</div>
+        <div><span class="h">→</span> AI: Claude API (Anthropic)</div>
+        <div><span class="h">→</span> Frontend: React, HTML/CSS/JS</div>
+        <div><span class="h">→</span> Hosting: GitHub Pages</div>
+        <div><span class="h">→</span> Lizenz: Source Available (All Rights Reserved)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote">
+  <div class="wrap">
+    <blockquote data-de="«Schüler haben ein Recht auf Lernen, das Spass macht. Und man kann erfolgreich sein, ohne seinen Namen draufzuschreiben.»" data-ch="«Schüeler händ es Rächt uf Lehre wo Spass macht. Und me cha erfolgriich sii, ohni sin Name druuf z schriibe.»" data-en="«Students have the right to learning that's fun. And you can be successful without putting your name on it.»">«Schüler haben ein Recht auf Lernen, das Spass macht. Und man kann erfolgreich sein, ohne seinen Namen draufzuschreiben.»</blockquote>
+    <cite class="mono">— anonymous student, zürich, 2026</cite>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section>
+  <div class="wrap">
+    <p class="section-label mono">// <span data-de="unsere werte" data-ch="eusi wert" data-en="our values">unsere werte</span></p>
+    <h2 class="section-title" data-de="Wofür wir stehen" data-ch="Wofür mir stöhnd" data-en="What We Stand For">Wofür wir stehen</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3 data-de="Kinderschutz" data-ch="Chinderschutz" data-en="Child Protection">Kinderschutz</h3>
+        <p data-de="Anonymität ist kein Bug — es ist ein Feature. Keine Namen, keine Gesichter, keine Daten." data-ch="Anonymität isch kei Bug — es isch es Feature. Kei Name, kei Gsichter, kei Date." data-en="Anonymity is not a bug — it's a feature. No names, no faces, no data.">Anonymität ist kein Bug — es ist ein Feature. Keine Namen, keine Gesichter, keine Daten.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3 data-de="Bildungsgerechtigkeit" data-ch="Bildigsgerächtigkeit" data-en="Equal Access to Education">Bildungsgerechtigkeit</h3>
+        <p data-de="Gymi-Vorbereitungskurse kosten oft Tausende Franken. Wir kosten nichts." data-ch="Gymi-Vorbereitigskurs chöschted oft Tuusigi Franke. Mir chöschted nüt." data-en="Gym prep courses often cost thousands of francs. We cost nothing.">Gymi-Vorbereitungskurse kosten oft Tausende Franken. Wir kosten nichts.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">😂</div>
+        <h3 data-de="Lernen = Spass" data-ch="Lehre = Spass" data-en="Learning = Fun">Lernen = Spass</h3>
+        <p data-de="Wenn Lernen keinen Spass macht, liegt es nicht am Kind. Es liegt am Format." data-ch="Wenn Lehre kei Spass macht, liegts nöd am Chind. Es liegt am Format." data-en="If learning isn't fun, it's not the kid's fault. It's the format.">Wenn Lernen keinen Spass macht, liegt es nicht am Kind. Es liegt am Format.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3 data-de="Transparenter Code" data-ch="Transparänte Code" data-en="Transparent Code">Transparenter Code</h3>
+        <p data-de="Unser Code ist öffentlich einsehbar — zum Lernen und Vertrauen. Alle Rechte bleiben beim Projekt." data-ch="Euse Code isch öffentlich iisehbar — zum Lehre und Vertraue. Alli Rächt bliibed bim Projäkt." data-en="Our code is publicly viewable — for learning and trust. All rights remain with the project.">Unser Code ist öffentlich einsehbar — zum Lernen und Vertrauen. Alle Rechte bleiben beim Projekt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section>
+  <div class="wrap">
+    <p class="section-label mono">// <span data-de="tools & setup" data-ch="tools & setup" data-en="tools & setup">tools & setup</span></p>
+    <h2 class="section-title" data-de="Was du brauchst um loszulegen" data-ch="Was du bruuchsch zum loslege" data-en="What You Need to Get Started">Was du brauchst um loszulegen</h2>
+    <p class="section-text" data-de="Ob du mitmachen willst oder einfach lernen möchtest wie wir arbeiten — hier sind die Tools die wir nutzen. Alles kostenlos." data-ch="Ob du mitmache wotsch oder eifach lehre möchtisch wie mir schaffed — da sind d Tools wo mir bruuched. Alles gratis." data-en="Whether you want to contribute or just learn how we work — here are the tools we use. All free.">Ob du mitmachen willst oder einfach lernen möchtest wie wir arbeiten — hier sind die Tools die wir nutzen. Alles kostenlos.</p>
+
+    <div class="cards" style="grid-template-columns: 1fr;">
+
+      <!-- VS Code -->
+      <div class="card" style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="font-size:2rem;flex-shrink:0;">💻</div>
+        <div>
+          <h3>VS Code</h3>
+          <p data-de="Unser Code-Editor. Kostenlos, von Microsoft, läuft auf allem." data-ch="Euse Code-Editor. Gratis, vo Microsoft, lauft uf allem." data-en="Our code editor. Free, by Microsoft, runs on everything.">Unser Code-Editor. Kostenlos, von Microsoft, läuft auf allem.</p>
+          <a href="https://code.visualstudio.com/download" target="_blank" class="mono" style="font-size:0.72rem;color:var(--glow);display:inline-block;margin-top:6px;">↗ code.visualstudio.com</a>
+        </div>
+      </div>
+
+      <!-- Node.js -->
+      <div class="card" style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="font-size:2rem;flex-shrink:0;">🟢</div>
+        <div>
+          <h3>Node.js</h3>
+          <p data-de="Braucht man für Claude Code und viele Web-Projekte. Nimm die LTS-Version." data-ch="Bruuchts für Claude Code und vili Web-Projäkt. Nimm d LTS-Version." data-en="Required for Claude Code and many web projects. Get the LTS version.">Braucht man für Claude Code und viele Web-Projekte. Nimm die LTS-Version.</p>
+          <a href="https://nodejs.org" target="_blank" class="mono" style="font-size:0.72rem;color:var(--glow);display:inline-block;margin-top:6px;">↗ nodejs.org</a>
+        </div>
+      </div>
+
+      <!-- Claude Code -->
+      <div class="card" style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="font-size:2rem;flex-shrink:0;">🤖</div>
+        <div>
+          <h3>Claude Code</h3>
+          <p data-de="AI direkt in deinem Terminal. Damit bauen wir dieses Projekt. Von Anthropic." data-ch="AI diräkt i dim Terminal. Demit boued mir das Projäkt. Vo Anthropic." data-en="AI right in your terminal. This is how we build this project. By Anthropic.">AI direkt in deinem Terminal. Damit bauen wir dieses Projekt. Von Anthropic.</p>
+          <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" class="mono" style="font-size:0.72rem;color:var(--glow);display:inline-block;margin-top:6px;">↗ docs.anthropic.com/claude-code</a>
+        </div>
+      </div>
+
+      <!-- Git & GitHub -->
+      <div class="card" style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="font-size:2rem;flex-shrink:0;">🐙</div>
+        <div>
+          <h3>Git & GitHub</h3>
+          <p data-de="So verwalten wir unseren Code. GitHub-Account ist kostenlos. Git kommt mit VS Code." data-ch="So verwalted mir euse Code. GitHub-Account isch gratis. Git chunnt mit VS Code." data-en="How we manage our code. GitHub account is free. Git comes with VS Code.">So verwalten wir unseren Code. GitHub-Account ist kostenlos. Git kommt mit VS Code.</p>
+          <a href="https://github.com" target="_blank" class="mono" style="font-size:0.72rem;color:var(--glow);display:inline-block;margin-top:6px;">↗ github.com</a>
+        </div>
+      </div>
+
+      <!-- Claude.ai -->
+      <div class="card" style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="font-size:2rem;flex-shrink:0;">🧠</div>
+        <div>
+          <h3>Claude.ai</h3>
+          <p data-de="Die AI im Browser. Fragen stellen, Code generieren, Ideen entwickeln. Kostenlos nutzbar." data-ch="D AI im Browser. Frage stelle, Code generiere, Idee entwickle. Gratis nutzbar." data-en="AI in your browser. Ask questions, generate code, develop ideas. Free to use.">Die AI im Browser. Fragen stellen, Code generieren, Ideen entwickeln. Kostenlos nutzbar.</p>
+          <a href="https://claude.ai" target="_blank" class="mono" style="font-size:0.72rem;color:var(--glow);display:inline-block;margin-top:6px;">↗ claude.ai</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Quick Start Terminal -->
+    <div class="terminal mono" style="margin-top:24px;">
+      <div class="terminal-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <span style="color:var(--text);font-size:0.65rem;margin-left:6px;">quick start</span>
+      </div>
+      <div class="terminal-body">
+        <div class="c"># 1. Node.js installieren (von nodejs.org)</div>
+        <div class="c"># 2. Claude Code installieren</div>
+        <div class="gr">$ npm install -g @anthropic-ai/claude-code</div>
+        <br>
+        <div class="c"># 3. Repo klonen</div>
+        <div class="gr">$ git clone https://github.com/icy67/mcp-fairytale-plugin.git</div>
+        <div class="gr">$ cd mcp-fairytale-plugin</div>
+        <br>
+        <div class="c"># 4. Claude Code starten</div>
+        <div class="gr">$ claude</div>
+        <div><span class="gr">✔</span> Ready. <span class="h">Willkommen im Projekt.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="wrap" style="text-align:center;">
+    <p class="section-label mono">// <span data-de="kontakt" data-ch="kontakt" data-en="contact">kontakt</span></p>
+    <h2 class="section-title" data-de="Mitmachen oder Fragen?" data-ch="Mitmache oder Frage?" data-en="Want to Contribute or Ask?">Mitmachen oder Fragen?</h2>
+    <p class="section-text" style="margin:0 auto 24px;" data-de="Wir kommunizieren ausschliesslich über GitHub Issues. Kein Social Media. Kein Kontaktformular. Keep it simple." data-ch="Mir kommuniziered nur über GitHub Issues. Keis Social Media. Keis Kontaktformular. Keep it simple." data-en="We communicate exclusively via GitHub Issues. No social media. No contact form. Keep it simple.">Wir kommunizieren ausschliesslich über GitHub Issues. Kein Social Media. Kein Kontaktformular. Keep it simple.</p>
+    <a href="https://github.com/icy67/mcp-fairytale-plugin/issues" target="_blank" style="display:inline-block;padding:12px 28px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:0.85rem;font-weight:600;background:linear-gradient(135deg,#4fc3f7,#00e5ff);color:#0a0e17;text-decoration:none;" data-de="💬 GitHub Issues öffnen" data-ch="💬 GitHub Issues ufmache" data-en="💬 Open GitHub Issues">💬 GitHub Issues öffnen</a>
+  </div>
+</section>
+
+<!-- LEGAL NOTICE -->
+<section style="padding:30px 0;">
+  <div class="wrap">
+    <div style="background:var(--card);border:1px solid rgba(168,230,255,0.08);border-radius:12px;padding:24px;">
+      <p class="section-label mono" style="margin-bottom:12px;">// <span data-de="hinweise" data-ch="hiiwis" data-en="legal notice">hinweise</span></p>
+      
+      <p style="font-size:0.82rem;line-height:1.75;margin-bottom:14px;" data-de="Dies ist ein nicht-kommerzielles, gemeinnütziges Familienprojekt mit dem Ziel, Kindern einen freudvollen Zugang zu Bildung zu ermöglichen." data-ch="Das isch es nicht-kommerziells, gmeinnützigs Familieprojäkt mit em Ziel, de Chind en freudvolle Zugang zu Bildig z ermögliche." data-en="This is a non-commercial, nonprofit family project with the goal of providing children joyful access to education.">Dies ist ein nicht-kommerzielles, gemeinnütziges Familienprojekt mit dem Ziel, Kindern einen freudvollen Zugang zu Bildung zu ermöglichen.</p>
+
+      <p style="font-size:0.82rem;line-height:1.75;margin-bottom:14px;" data-de="Sämtliche Inhalte dieser Webseite — Texte, Code, Design und Konzepte — wurden ausschliesslich mit Hilfe von Claude / Anthropic erstellt. Wir haben nach bestem Wissen darauf geachtet, keine bestehenden Urheberrechte oder geistigen Eigentumsrechte Dritter zu verletzen." data-ch="Sämtlichi Inhalt vo dere Websyte — Texte, Code, Design und Konzäpt — sind usschliesslich mit Hilf vo Claude / Anthropic erstellt worde. Mir händ nach beschtem Wüsse druuf gachtet, kei bestehendi Urheberrächt oder geistigi Eigetumsrächt vo Dritte z verletze." data-en="All content on this website — text, code, design, and concepts — was created exclusively with the help of Claude / Anthropic. We have taken care to the best of our knowledge not to infringe upon any existing copyrights or intellectual property rights of third parties.">Sämtliche Inhalte dieser Webseite — Texte, Code, Design und Konzepte — wurden ausschliesslich mit Hilfe von Claude / Anthropic erstellt. Wir haben nach bestem Wissen darauf geachtet, keine bestehenden Urheberrechte oder geistigen Eigentumsrechte Dritter zu verletzen.</p>
+
+      <p style="font-size:0.82rem;line-height:1.75;" data-de="Sollten dennoch Rechte Dritter betroffen sein, bitten wir um umgehende Kontaktaufnahme über GitHub Issues. Wir werden betroffene Inhalte unverzüglich prüfen und gegebenenfalls entfernen oder anpassen." data-ch="Sötted trotzdem Rächt vo Dritte betroffe sii, bitted mir um umgehendi Kontaktufnahm über GitHub Issues. Mir werded betroffeni Inhalt unverzüglich prüefe und gägäbenefalls entferne oder aapasse." data-en="Should any third-party rights be affected, we kindly ask for immediate contact via GitHub Issues. We will promptly review and, if necessary, remove or adjust the content in question.">Sollten dennoch Rechte Dritter betroffen sein, bitten wir um umgehende Kontaktaufnahme über GitHub Issues. Wir werden betroffene Inhalte unverzüglich prüfen und gegebenenfalls entfernen oder anpassen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="mono" style="font-size:0.7rem;line-height:2.2;margin-bottom:16px;color:var(--text);">
+      <span data-de="[icy67] Gemeinnütziges Familienprojekt. Source Available. Zürich." data-ch="[icy67] Gmeinnützigs Familieprojäkt. Source Available. Züri." data-en="[icy67] Nonprofit family project. Source Available. Zurich.">[icy67] Gemeinnütziges Familienprojekt. Source Available. Zürich.</span><br>
+      [icy67] All content created with Claude / Anthropic.<br>
+      [icy67] Process exited with code 0. ✔
+    </div>
+    <div style="display:flex;justify-content:center;gap:24px;margin-bottom:12px;">
+      <a href="https://github.com/icy67/mcp-fairytale-plugin" target="_blank" style="font-size:0.8rem;">GitHub</a>
+      <a href="https://github.com/icy67/mcp-fairytale-plugin/issues" target="_blank" style="font-size:0.8rem;" data-de="Kontakt" data-ch="Kontakt" data-en="Contact">Kontakt</a>
+    </div>
+    <p class="mono" style="font-size:0.6rem;color:rgba(255,255,255,0.2);">
+      © 2026 icy67 — Non-commercial · Source Available · All Rights Reserved · Made with 🧊 in Zürich<br>
+      <span data-de="Alle Inhalte erstellt mit Claude / Anthropic. Alle Rechte vorbehalten. Siehe LICENSE." data-ch="Alli Inhalt erstellt mit Claude / Anthropic. Alli Rächt vorbehalte. Lueg LICENSE." data-en="All content created with Claude / Anthropic. All rights reserved. See LICENSE.">Alle Inhalte erstellt mit Claude / Anthropic. Alle Rechte vorbehalten. Siehe LICENSE.</span>
+    </p>
+  </div>
+</footer>
+
+<script>
+// Snowfall
+(function(){
+  var c=document.getElementById('snow');
+  var f=['❄','❆','✦','·'];
+  for(var i=0;i<25;i++){
+    var s=document.createElement('div');
+    s.className='flake';
+    s.textContent=f[Math.floor(Math.random()*f.length)];
+    s.style.left=Math.random()*100+'%';
+    s.style.animationDuration=(6+Math.random()*12)+'s';
+    s.style.animationDelay=Math.random()*10+'s';
+    s.style.fontSize=(0.4+Math.random()*0.8)+'rem';
+    c.appendChild(s);
+  }
+})();
+
+// Language Switcher
+var currentLang = 'de';
+
+function setLang(lang) {
+  currentLang = lang;
+  // Update buttons
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    btn.classList.remove('active');
+  });
+  document.getElementById('btn-' + lang).classList.add('active');
+  
+  // Update all translatable elements
+  document.querySelectorAll('[data-' + lang + ']').forEach(function(el) {
+    var text = el.getAttribute('data-' + lang);
+    if (el.tagName === 'A' && el.getAttribute('href')) {
+      el.textContent = text;
+    } else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = text;
+    } else {
+      el.textContent = text;
+    }
+  });
+  
+  // Update html lang attribute
+  var langMap = { de: 'de', ch: 'de-CH', en: 'en' };
+  document.documentElement.lang = langMap[lang];
+}
+</script>
+
+</body>
+</html>
